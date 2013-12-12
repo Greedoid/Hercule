@@ -25,7 +25,7 @@ class Request:
 		return pages
 
 	def get_masteries_from_id(self, summoner_id, region='na'):
-		request_string = self.prior + region + self.vers + '/summoner/' + summoner_id + '/masteries' 
+		request_string = self.prior + region + self.vers + '/summoner/' + str(summoner_id) + '/masteries' 
 		raw = self.make_request(request_string)
 		pages = []
 		for item in raw['pages']:
