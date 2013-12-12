@@ -1,4 +1,5 @@
 from config import *
+import sys
 import requests
 
 class Request:
@@ -33,6 +34,10 @@ class Request:
 		return pages
 
 	def make_request(self, request_info):
-		r = requests.get(request_info, params={'api_key': self.api_key})
+		try:
+			r = requests.get(request_info, params={'api_key': self.api_key})
+		except requests.exceptions.RequestException as exception:
+			print exception
+			sys.exit(1)
+		r.raise_for_status()
 		return r.json()
-
