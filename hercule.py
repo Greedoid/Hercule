@@ -4,6 +4,7 @@ import requests
 class Request:
 
 	def __init__(self, api_key):
+		self.max_names = 40
 		self.prior = 'http://prod.api.pvp.net/api/lol/'
 		self.vers = '/v1.1'
 		self.api_key = str(api_key)
@@ -76,6 +77,15 @@ class Request:
 			if page['current']:
 				return page
 
+	def get_names_by_ids(self, summoner_ids, region='na'):
+		name_list = []
+		for id_list in [summoner_ids[i:i+self.max_names] for i in range (0, len(summoner_ids), self.max_names)]:
+			request_string = self.prior + region + self.vers + '/summoner/' + ','.join(map(str, id_list)) + '/name'
+			names = self.make_request(request_string)
+			for dto in names['summoners']:
+				name_list.append(dto['name'])
+		return name_list
+			
 	def make_request(self, request_info):
 		try:
 			r = requests.get(request_info, params={'api_key': self.api_key})
