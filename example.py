@@ -11,7 +11,7 @@ def main():
 	'''
 	Calling a function involves passing in a name whenever a function asks for it - all API calls will have a method that takes a summoner name as a sole argument
 	'''
-	player_id = r.get_id_from_name('Froggen', 'euw')
+	player_id = r.get_id_from_name('Dyrus')
 	print player_id
 
 	'''
@@ -24,7 +24,7 @@ def main():
 	'''
 	All summoner-based calls assume NA region. If you want another region, just pass it in after the summoner name
 	'''
-	runes = r.get_runes_from_name('Froggen', 'euw')
+	current_runes = r.get_current_runes_from_name('Froggen', 'euw')
 	print runes
 
 if __name__ == ('__main__'):
