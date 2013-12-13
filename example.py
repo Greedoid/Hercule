@@ -25,7 +25,7 @@ def main():
 	All summoner-based calls assume NA region. If you want another region, just pass it in after the summoner name
 	'''
 	current_runes = r.get_current_runes_from_name('Froggen', 'euw')
-	print runes
+	print current_runes
 
 if __name__ == ('__main__'):
 	main()

@@ -1,5 +1,5 @@
-Hercule
-=======
+Hercule 0.1.0
+=============
 
 Hercule is a robust Python wrapper for Riot Games League of Legends API
 
