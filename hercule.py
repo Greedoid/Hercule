@@ -18,7 +18,7 @@ class Request:
 		return self.make_request(request_string)['summonerLevel']
 
 	def get_masteries_from_name(self, name, region='na'):
-		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name)) + '/masteries' 
+		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name, region)) + '/masteries' 
 		raw = self.make_request(request_string)
 		pages = []
 		for page in raw['pages']:
@@ -26,7 +26,7 @@ class Request:
 		return pages
 
 	def get_current_masteries_from_name(self, name, region='na'):
-		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name)) + '/masteries' 
+		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name, region)) + '/masteries' 
 		raw = self.make_request(request_string)
 		for page in raw['pages']:
 			if page['current']: 
@@ -48,7 +48,8 @@ class Request:
 				return page
 
 	def get_runes_from_name(self, name, region='na'):
-		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name)) + '/runes'
+		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name, region)) + '/runes'
+		print request_string
 		raw = self.make_request(request_string)
 		pages = []
 		for page in raw['pages']:
@@ -56,7 +57,7 @@ class Request:
 		return pages
 
 	def get_current_runes_from_name(self, name, region='na'):
-		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name)) + '/runes' 
+		request_string = self.prior + region + self.vers + '/summoner/' + str(self.get_id_from_name(name, region)) + '/runes' 
 		raw = self.make_request(request_string)
 		for page in raw['pages']:
 			if page['current']: 
