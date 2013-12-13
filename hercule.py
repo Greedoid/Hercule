@@ -50,7 +50,6 @@ class Request:
 
 	def get_runes_from_name(self, name, region='na'):
 		request_string = 'lol/' + region + self.vers + '/summoner/' + str(self.get_id_from_name(name, region)) + '/runes'
-		print request_string
 		raw = self.make_request(request_string)
 		pages = []
 		for page in raw['pages']:
@@ -94,13 +93,11 @@ class Request:
 
 	def get_teams_from_name(self, name, region='na'):
 		request_string = region + self.vers2 + '/team/by-summoner/' + str(self.get_id_from_name(name, region))
-		print request_string
 		return self.make_request(request_string)
 			
 	def make_request(self, request_info):
 		try:
 			r = requests.get((self.prior + request_info), params={'api_key': self.api_key})
-			print r.url
 		except requests.exceptions.RequestException as exception:
 			print exception
 			sys.exit(1)
