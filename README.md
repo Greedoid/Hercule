@@ -4,7 +4,7 @@ Hercule
 Hercule is a robust Python wrapper for Riot Games League of Legends API
 
 Making Calls
-============
+------------
 
 It's simple! To start, from hercule, import Request - this is the class you'll use to make API calls
 
