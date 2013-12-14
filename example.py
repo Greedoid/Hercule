@@ -1,5 +1,5 @@
 from hercule import Request
-from config import api_key
+from config import api_key #This assumes you have an external config file that houses your API key. If you do not, to run this example, delete this line and input your API key when we initialize the Request object
 
 def main():
 
@@ -11,7 +11,7 @@ def main():
 	'''
 	Calling a function involves passing in a name whenever a function asks for it - all API calls will have a method that takes a summoner name as a sole argument
 	'''
-	player_id = r.get_id_from_name('The Rain Man')
+	player_id = r.get_id_from_name('  The    Rain  Man ')
 	print player_id
 
 	'''

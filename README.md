@@ -10,11 +10,16 @@ It's simple! To start, from hercule, import Request - this is the class you'll u
 
 	from hercule import Request
 
+Hercule uses the requests module - if you're getting module errors, pip install it -
+
+	pip install requests
+
 Then, initialize your class - you'll need to have your API key, which you can get at https://developer.riotgames.com/sign-in
 
 	r = Request(api_key)
 
 From this object, you can call any of Hercule's methods and receive your information as a string or a Python dict 
+
 Here are a few examples - 
 
 ### Getting a summoner ID
