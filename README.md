@@ -1,7 +1,7 @@
-Hercule 0.1.0
+Hercule 1.0.0
 =============
 
-Hercule is a robust Python wrapper for Riot Games League of Legends API
+Hercule is a Python wrapper for Riot Games League of Legends API
 
 Making Calls
 ------------
@@ -62,3 +62,19 @@ The stats summary function will retrieve overall statistics for a summoner durin
 
 **NOTE**: The statistics functions are defaulted to season 4 statistics. Since, as of this writing, season 4 has not begun yet, calling them as-is will not yield any particularly useful information. Passing in 'SEASON3', like in the ranked stats example, will allow you to see a player's performance for a past season (in this case, mine!)
 
+### Getting champions
+
+	champs = r.get_champions()
+
+The default function for champions takes no parameters and returns all of the champions with regards to the North American server (for purposes of champions being disabled). get_champions has two possible arguments: region and a free-to-play flag. For example:
+
+	euw_free_champs = r.get_champions(True, 'euw')
+
+Will return all free champions on the EU-West server
+
+Contact
+-------
+
+Let me know what you think - things to improve, things to remove, if I should uninstall LoL, etc.
+
+You can get in touch with me at kjazz15@gmail.com!
