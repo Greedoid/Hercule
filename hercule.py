@@ -102,8 +102,16 @@ class Request:
 		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' + str(summoner_id) + '/summary'
 		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
 	
-	def get_stat_summary_from_name(self, name, region='na', season='SEASON4'):
+	def get_stat_summary_from_name(self, name,  region='na', season='SEASON4'):
 		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' + str(self.get_id_from_name(name, region)) + '/summary'
+		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
+
+	def get_ranked_summary_from_id(self, summoner_id, region='na', season='SEASON4'):
+		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' + str(summoner_id) + '/ranked'
+		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
+	
+	def get_ranked_summary_from_name(self, name,  region='na', season='SEASON4'):
+		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' + str(self.get_id_from_name(name, region)) + '/ranked'
 		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
 
 			
