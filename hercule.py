@@ -23,11 +23,7 @@ class Request:
 
 	def get_masteries_from_name(self, name, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' + str(self.get_id_from_name(name, region)) + '/masteries' 
-		raw = self.make_request(request_string)
-		pages = []
-		for page in raw['pages']:
-			pages.append(page)
-		return pages
+		return self.make_request(request_string)
 
 	def get_current_masteries_from_name(self, name, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' + str(self.get_id_from_name(name, region)) + '/masteries' 
@@ -38,11 +34,7 @@ class Request:
 
 	def get_masteries_from_id(self, summoner_id, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' + str(summoner_id) + '/masteries' 
-		raw = self.make_request(request_string)
-		pages = []
-		for page in raw['pages']:
-			pages.append(page)
-		return pages
+		return self.make_request(request_string)
 	
 	def get_current_masteries_from_id(self, summoner_id, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' + str(summoner_id) + '/masteries' 
@@ -53,11 +45,7 @@ class Request:
 
 	def get_runes_from_name(self, name, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' + str(self.get_id_from_name(name, region)) + '/runes'
-		raw = self.make_request(request_string)
-		pages = []
-		for page in raw['pages']:
-			pages.append(page)
-		return pages
+		return self.make_request(request_string)
 
 	def get_current_runes_from_name(self, name, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' +  str(self.get_id_from_name(name, region))+ '/runes' 
@@ -68,11 +56,7 @@ class Request:
 
 	def get_runes_from_id(self, summoner_id, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' + str(summoner_id) + '/runes' 
-		raw = self.make_request(request_string)
-		pages = []
-		for page in raw['pages']:
-			pages.append(page)
-		return pages
+		return self.make_request(request_string)
 	
 	def get_current_runes_from_id(self, summoner_id, region='na'):
 		request_string = 'lol/' + region + self.version[0] + '/summoner/' + str(summoner_id) + '/runes' 
@@ -98,11 +82,11 @@ class Request:
 		request_string = region + self.version[1] + '/team/by-summoner/' + str(self.get_id_from_name(name, region))
 		return self.make_request(request_string)
 
-	def get_stat_summary_from_id(self, summoner_id, region='na', season='SEASON4'):
+	def get_stats_summary_from_id(self, summoner_id, region='na', season='SEASON4'):
 		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' + str(summoner_id) + '/summary'
 		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
 	
-	def get_stat_summary_from_name(self, name,  region='na', season='SEASON4'):
+	def get_stats_summary_from_name(self, name,  region='na', season='SEASON4'):
 		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' + str(self.get_id_from_name(name, region)) + '/summary'
 		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
 
@@ -111,10 +95,29 @@ class Request:
 		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
 	
 	def get_ranked_summary_from_name(self, name,  region='na', season='SEASON4'):
-		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' + str(self.get_id_from_name(name, region)) + '/ranked'
+		request_string = 'lol/' + region + self.version[0] + '/stats/by-summoner/' +  str(self.get_id_from_name(name, region))+ '/ranked'
 		return self.make_request(request_string, {'api_key' : self.api_key, 'season' : season})
+	
+	def get_leagues_from_id(self, summoner_id, region='na'):
+		request_string = region + self.version[1] + '/league/by-summoner/' + str(summoner_id) 
+		return self.make_request(request_string)
 
-			
+	def get_leagues_from_name(self, name, region='na'):
+		request_string = region + self.version[1] + '/league/by-summoner/' + str(self.get_id_from_name(name, region))
+		return self.make_request(request_string)
+
+	def get_recent_games_from_id(self, summoner_id, region='na'):
+		request_string = 'lol/' + region + self.version[0] + '/game/by-summoner/' + str(summoner_id) + '/recent'
+		return self.make_request(request_string)
+	
+	def get_recent_games_from_name(self, name, region='na'):
+		request_string = 'lol/' + region + self.version[0] + '/game/by-summoner/' + str(self.get_id_from_name(name, region)) + '/recent'
+		return self.make_request(request_string)
+
+	def get_champions(self, ftp=False, region='na'):
+		request_string = 'lol/' + region + self.version[0] + '/champion'
+		return self.make_request(request_string, {'api_key' : self.api_key, 'freeToPlay' : ftp})
+
 	def make_request(self, request_info, info_params=None):
 		if info_params is None:
 			info_params = {'api_key' : self.api_key}

@@ -53,6 +53,12 @@ This returns a list of rune pages from the particular player
 
 This function goes one step further and returns only the current mastery page that the player has equipped. There is a similar function for rune pages.
 
- 
+### Getting statistics 
 
+	stats = r.get_stats_summary_from_name('The Rain Man')
+	ranked_stats = r.get_ranked_summary_from_name('Greedoid', 'na', 'SEASON3')
+
+The stats summary function will retrieve overall statistics for a summoner during a particular season, while the ranked summary will return ranked information for that summoner for all queue types
+
+**NOTE**: The statistics functions are defaulted to season 4 statistics. Since, as of this writing, season 4 has not begun yet, calling them as-is will not yield any particularly useful information. Passing in 'SEASON3', like in the ranked stats example, will allow you to see a player's performance for a past season (in this case, mine!)
 
