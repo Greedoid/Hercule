@@ -11,7 +11,7 @@ def main():
 	'''
 	Calling a function involves passing in a name whenever a function asks for it - all API calls will have a method that takes a summoner name as a sole argument
 	'''
-	player_id = r.get_id_from_name('  The    Rain  Man ')
+	player_id = r.get_id_from_name('The Rain Man')
 	print player_id
 
 	'''
@@ -29,10 +29,13 @@ def main():
 
 
 	'''
-	Asking for the teams of a player returns a teams DTO (Data Transer Object)
+	Asking for any multi-page info (like teams or stats) of a player returns a DTO (Data Transer Object)
 	'''
-	teams = r.get_teams_from_name('Greedoid')
+	teams = r.get_teams_from_name('Dyrus')
 	print teams
+
+	stats = r.get_stat_summary_from_name('TheOddOne', 'na', 'SEASON3')
+	print stats
 
 if __name__ == ('__main__'):
 	main()
