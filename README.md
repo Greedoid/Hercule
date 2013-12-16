@@ -78,3 +78,8 @@ Contact
 Let me know what you think - things to improve, things to remove, if I should uninstall LoL, etc.
 
 You can get in touch with me at kjazz15@gmail.com!
+
+
+
+
+This product is not endorsed, certified or otherwise approved in any way by Riot Games, Inc. or any of its affiliates.
