@@ -29,7 +29,7 @@ def main():
 
 	# Asking for ranked stats or a player's stat summary will require a season, defaulted to season 4. As of this writing, season 4 has not started yet, so calling the default stat functions will not return anything particularly useful - pass in 'SEASON3' in order to get the previous season's statistics. 
 	stats = r.get_ranked_summary_from_name('TheOddOne','na', 'SEASON3')
-	print stats['champions'][0]['stats'][1]
+	print stats['champions'][0]['stats']
 
 	# Getting all champions doesn't require a player name, but it requires a region and an optional free-to-play argument
 	# Calling get_champions() with no arguments will return all champions with regards to the North American Server
